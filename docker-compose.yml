@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  web:
+    build: .
+    image: catalog_app_client
+    ports:
+      - 3000:3000
+    volumes:
+      - ./:/www/app
+    environment:
+      PORT: 3000
+      NODE_ENV: development
+    command: npm start
