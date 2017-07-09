@@ -6,7 +6,7 @@ import { LocaleProvider } from 'antd';
 import enUS from 'antd/lib/locale-provider/en_US';
 import { Provider } from 'react-redux';
 
-import './index.scss';
+import './styles.scss';
 import configureStore from './store';
 import Router from './router';
 

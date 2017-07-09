@@ -1,7 +1,12 @@
 import React from 'react';
 
+import './styles.scss';
+import LoginForm from './components/LoginForm';
+
 const Login = () => (
-  <h1>Login!</h1>
+  <div className="LoginScene">
+    <LoginForm />
+  </div>
 );
 
 export default Login;

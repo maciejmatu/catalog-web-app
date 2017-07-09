@@ -1,0 +1,22 @@
+.Dashboard {
+  height: 100%;
+
+  &__side-bar {
+    width: 200px;
+    background: #fff;
+  }
+
+  &__menu {
+    height: 100%;
+    border-right: 0;
+  }
+
+  &__content {
+    padding: 24px;
+
+    &--inner {
+      background-color: white;
+      padding: 24px;
+    }
+  }
+}
