@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "antd": "^2.11.2",
+    "axios": "^0.16.2",
     "babel-polyfill": "^6.23.0",
     "express": "^4.15.3",
     "express-history-api-fallback": "^2.2.1",
@@ -23,7 +24,8 @@
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.7.1"
+    "redux": "^3.7.1",
+    "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

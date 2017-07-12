@@ -2,9 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 
 import './styles.scss';
 import Logo from '../../../../components/Logo';
+import { loginUser } from '../../../../services/users/actions';
 
 class LoginForm extends Component {
   _handleSubmit = (e) => {
@@ -12,6 +15,8 @@ class LoginForm extends Component {
 
     this.props.form.validateFields((err, values) => {
       if (!err) console.log('Received values of form: ', values);
+
+      this.props.actions.loginUser(values);
     });
   }
 
@@ -24,10 +29,10 @@ class LoginForm extends Component {
           <Logo color="#000" />
         </div>
         <Form.Item className="LoginForm__item">
-          {getFieldDecorator('userName', {
-            rules: [{ required: true, message: 'Please input your username!' }]
+          {getFieldDecorator('email', {
+            rules: [{ required: true, message: 'Please input your email!' }]
           })(
-            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Username" />
+            <Input prefix={<Icon type="user" style={{ fontSize: 13 }} />} placeholder="Email" />
           )}
         </Form.Item>
         <Form.Item className="LoginForm__item">
@@ -44,7 +49,7 @@ class LoginForm extends Component {
           })(
             <Checkbox>Remember me</Checkbox>
           )}
-          <Button type="primary" htmlType="submit" className="LoginForm__button">Log in</Button>
+          <Button type="primary" htmlType="submit" className="LoginForm__button" loading={this.props.user.isLoading}>Log in</Button>
           <Button type="default" className="LoginForm__button">
             <Link to="/register">Register</Link>
           </Button>
@@ -56,7 +61,23 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  form: PropTypes.object.isRequired
+  form: PropTypes.object.isRequired,
+  actions: PropTypes.object.isRequired,
+  user: PropTypes.object.isRequired
 };
 
-export default Form.create()(LoginForm);
+function mapStateToProps(state) {
+  return {
+    user: state.user
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: {
+      loginUser: bindActionCreators(loginUser, dispatch)
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form.create()(LoginForm));
