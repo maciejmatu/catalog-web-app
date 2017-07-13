@@ -13,7 +13,7 @@ const { Header, Content, Sider } = Layout;
 
 const Dashboard = ({ match, location }) => {
   const routes = [
-    { path: `${match.url}/my-library`, title: 'My Library' },
+    { path: `${match.url}`, title: 'My Library' },
     { path: `${match.url}/settings`, title: 'Settings' }
   ];
 
@@ -34,8 +34,8 @@ const Dashboard = ({ match, location }) => {
         </Sider>
         <Layout className="Dashboard__content">
           <Content className="Dashboard__content--inner">
-            <Route path={`${match.url}/my-library`} component={MyLibrary} />
-            <Route path={`${match.url}/settings`} component={Settings} />
+            <Route exact path={`${match.url}`} component={MyLibrary} />
+            <Route exact path={`${match.url}/settings`} component={Settings} />
           </Content>
         </Layout>
       </Layout>

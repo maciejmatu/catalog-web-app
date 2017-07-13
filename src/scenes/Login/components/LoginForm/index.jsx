@@ -14,9 +14,11 @@ class LoginForm extends Component {
     e.preventDefault();
 
     this.props.form.validateFields((err, values) => {
-      if (!err) console.log('Received values of form: ', values);
-
-      this.props.actions.loginUser(values);
+      if (!err) {
+        this.props.actions.loginUser(values);
+      } else {
+        console.log(err);
+      }
     });
   }
 
@@ -42,6 +44,9 @@ class LoginForm extends Component {
             <Input prefix={<Icon type="lock" style={{ fontSize: 13 }} />} type="password" placeholder="Password" />
           )}
         </Form.Item>
+        <div className="LoginForm__error">
+          {this.props.user.errorMessage}
+        </div>
         <Form.Item className="LoginForm__item">
           {getFieldDecorator('remember', {
             valuePropName: 'checked',
