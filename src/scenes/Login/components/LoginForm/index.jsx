@@ -10,6 +10,12 @@ import Logo from '../../../../components/Logo';
 import { loginUser } from '../../../../services/users/actions';
 
 class LoginForm extends Component {
+  static propTypes = {
+    form: PropTypes.object.isRequired,
+    actions: PropTypes.object.isRequired,
+    user: PropTypes.object.isRequired
+  };
+
   _handleSubmit = (e) => {
     e.preventDefault();
 
@@ -64,12 +70,6 @@ class LoginForm extends Component {
     );
   }
 }
-
-LoginForm.propTypes = {
-  form: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired,
-  user: PropTypes.object.isRequired
-};
 
 function mapStateToProps(state) {
   return {

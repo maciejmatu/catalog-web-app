@@ -27,6 +27,20 @@ export function loginUser({ email, password }) {
   };
 }
 
+export function registerUser(formData) {
+  return function (dispatch) {
+    dispatch({ type: types.REQUEST_REGISTER_USER });
+
+    axios.post(`${API_URL}/auth/register`, formData)
+      .then(() => {
+        message.success('Registered successfully. You can now log in to your account.');
+        dispatch({ type: types.REGISTER_USER });
+        history.push('/login');
+      })
+      .catch(err => errorHandler(dispatch, err.response, types.REGISTER_ERROR));
+  };
+}
+
 export function logoutUser() {
   return function (dispatch) {
     dispatch({ type: types.UNAUTH_USER });

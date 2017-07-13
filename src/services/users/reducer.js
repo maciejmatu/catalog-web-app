@@ -32,6 +32,23 @@ export default function userReducer(state = INITIAL_STATE, action) {
         authenticated: false,
         errorMessage: action.errorMessage
       };
+    case types.REQUEST_REGISTER_USER:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case types.REGISTER_USER:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: ''
+      };
+    case types.REGISTER_ERROR:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.errorMessage
+      };
     default:
       return state;
   }
