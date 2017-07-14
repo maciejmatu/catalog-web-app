@@ -132,7 +132,7 @@ class RegisterForm extends Component {
           )}
         </Form.Item>
         <div className="LoginForm__error">
-          {this.props.user.errorMessage}
+          {this.props.user.registerErrorMessage}
         </div>
         <Button type="primary" htmlType="submit" className="RegisterForm__button" loading={this.props.user.isLoading}>Submit</Button>
         <Link to="/login" className="RegisterForm__link">Back to login page</Link>

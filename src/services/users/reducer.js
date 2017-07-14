@@ -3,7 +3,8 @@ import * as types from './actionTypes';
 const INITIAL_STATE = {
   isLoading: false,
   authenticated: false,
-  errorMessage: ''
+  authErrorMessage: '',
+  registerErrorMessage: ''
 };
 
 export default function userReducer(state = INITIAL_STATE, action) {
@@ -18,7 +19,7 @@ export default function userReducer(state = INITIAL_STATE, action) {
         ...state,
         isLoading: false,
         authenticated: true,
-        errorMessage: ''
+        authErrorMessage: ''
       };
     case types.UNAUTH_USER:
       return {
@@ -30,7 +31,7 @@ export default function userReducer(state = INITIAL_STATE, action) {
         ...state,
         isLoading: false,
         authenticated: false,
-        errorMessage: action.errorMessage
+        authErrorMessage: action.errorMessage
       };
     case types.REQUEST_REGISTER_USER:
       return {
@@ -41,13 +42,13 @@ export default function userReducer(state = INITIAL_STATE, action) {
       return {
         ...state,
         isLoading: false,
-        errorMessage: ''
+        registerErrorMessage: ''
       };
     case types.REGISTER_ERROR:
       return {
         ...state,
         isLoading: false,
-        errorMessage: action.errorMessage
+        registerErrorMessage: action.errorMessage
       };
     default:
       return state;

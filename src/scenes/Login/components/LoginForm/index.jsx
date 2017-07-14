@@ -51,7 +51,7 @@ class LoginForm extends Component {
           )}
         </Form.Item>
         <div className="LoginForm__error">
-          {this.props.user.errorMessage}
+          {this.props.user.authErrorMessage}
         </div>
         <Form.Item className="LoginForm__item">
           {getFieldDecorator('remember', {
