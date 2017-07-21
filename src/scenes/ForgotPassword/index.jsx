@@ -4,6 +4,7 @@ import { Form, Icon, Input, Button } from 'antd';
 
 import './styles.scss';
 import Logo from '../../components/Logo';
+import AuthSceneWrapper from '../../components/AuthSceneWrapper';
 
 class ForgotPassword extends Component {
   static propTypes = {
@@ -26,7 +27,7 @@ class ForgotPassword extends Component {
     const { getFieldDecorator } = this.props.form;
 
     return (
-      <div className="ForgotPassword__scene">
+      <AuthSceneWrapper>
         <Form onSubmit={this._handleSubmit} className="ForgotPassword__form">
           <header className="ForgotPassword__form__header">
             <div className="ForgotPassword__logo">
@@ -48,7 +49,7 @@ class ForgotPassword extends Component {
           </Form.Item>
           <Button type="primary" htmlType="submit" className="RegisterForm__button">Submit</Button>
         </Form>
-      </div>
+      </AuthSceneWrapper>
     );
   }
 }

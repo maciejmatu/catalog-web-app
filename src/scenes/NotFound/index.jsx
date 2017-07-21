@@ -3,9 +3,10 @@ import { Button, Icon } from 'antd';
 import { Link } from 'react-router-dom';
 
 import './styles.scss';
+import AuthSceneWrapper from '../../components/AuthSceneWrapper';
 
 const NotFound = () => (
-  <div className="NotFound">
+  <AuthSceneWrapper>
     <div className="NotFound__wrapper">
       <blockquote className="NotFound__quote">
         <h1>“Not all those who wander are lost.”</h1>
@@ -18,7 +19,7 @@ const NotFound = () => (
         </Link>
       </Button>
     </div>
-  </div>
+  </AuthSceneWrapper>
 );
 
 export default NotFound;
