@@ -7,7 +7,7 @@ import history from '../../history';
 const API_URL = 'http://localhost:9001/api';
 
 function errorHandler(dispatch, error, type) {
-  const errorMessage = (error && error.data && error.data.error) ? error.data.error : '';
+  const errorMessage = (error && error.data && error.data.error) ? error.data.error : 'Could not connect to the server';
 
   dispatch({ type, errorMessage });
 }
